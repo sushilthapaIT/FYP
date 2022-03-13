@@ -17,6 +17,7 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-awesome.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/owl.carousel.min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/flexslider.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/chosen.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/color-01.css')}}">
@@ -42,35 +43,28 @@
 						<div class="topbar-menu left-menu">
 							<ul>
 								<li class="menu-item">
-									<a title="Hotline: (+123) 456 789" href="#"><span
+									<a title="Hotline: " href="#"><span
 											class="icon label-before fa fa-mobile"></span>Hotline: (+977) 9812345323</a>
 								</li>
 							</ul>
 						</div>
 						<div class="topbar-menu right-menu">
-							<ul>
-								<!-- <li class="menu-item"><a title="Register or Login" href="login.html">Login</a></li>
-								<li class="menu-item"><a title="Register or Login" href="register.html">Register</a> -->
-								</li>
-								<li class="menu-item lang-menu menu-item-has-children parent">
-									<a title="English" href="#"><span class="img label-before"><img
-												src="{{asset('assets/images/lang-en.png')}}" alt="lang-en"></span>English lANG</i></a>
-								</li>
-								<li class="menu-item menu-item-has-children parent">
-									<a title="Nepalese (NPR)" href="https://www.nrb.org.np/forex/">Nepalese (NPR)</a>
-								</li>
+							<ul> 
 								@if(Route::has('login'))    
 								@auth
 									@if(Auth::user()->utype === 'ADM')
 										<li class="menu-item menu-item-has-children parent" >
-											<a title="My Account" href="#">My Account ({{Auth::user()->name}})</a>
+											<a title="My Account" href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 											<ul class="submenu curency" >
 										<li class="menu-item" >
 											<a title="admin dashboard" href="{{route('admin.dashboard')}}">Dashboard</a>
 										</li>
+										<li class="menu-item" >
+											<a title="Categories" href="{{route('admin.categories')}}">Categories</a>
+										</li>
 										<li class="menu-item">
-													<a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-												</li>
+											<a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+										</li>
 										<form id="logout-form" method="POST" action="{{route('logout')}}">
 												@csrf						
 											</form>
@@ -83,6 +77,7 @@
 										<li class="menu-item" >
 											<a title="User Dashboard" href="{{route('user.dashboard')}}">Dashboard</a>
 										</li>
+										
 										<li class="menu-item">
 													<a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
 												</li>
@@ -110,33 +105,25 @@
 									alt="logo"></a>
 						</div>
 
-						<div class="wrap-search center-section">
-							<div class="wrap-search-form">
-								<form action="#" id="form-search-top" name="form-search-top">
-									<input type="text" name="search" value="" placeholder="Search here...">
-									<button form="form-search-top" type="button"><i class="fa fa-search"
-											aria-hidden="true"></i></button>
-									<div class="wrap-list-cate">
-										<input type="hidden" name="product-cate" value="0" id="product-cate">
-										<a href="/shop" class="link-control">All Category</a>
-										<ul class="list-cate">
-											<li class="level-0">All Bakery Products</li>
-											<li class="level-1">-Cakes</li>
-											<li class="level-1">-Cupcakes</li>
-											<li class="level-1">-Pies and Puddings</li>
-											<li class="level-1">-Cookies and Bars</li>
-										</ul>
-									</div>
-								</form>
-							</div>
-						</div>
+							@livewire('header-search-component')
 
 						<div class="wrap-icon right-section">
+							<div class="wrap-icon-section wishlist">
+								<a href="#" class="link-direction">
+									<i class="fa fa-heart" aria-hidden="true"></i>
+									<div class="left-info">
+										<span class="title">Custom</span>
+										<span class="title">Order</span>
+									</div> 
+								</a>
+							</div>
 							<div class="wrap-icon-section minicart">
 								<a href="/cart" class="link-direction">
 									<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 									<div class="left-info">
-										<span class="index">4 items</span>
+										@if(Cart::count() > 0)
+										<span class="index">{{Cart::count()}} items</span>
+										@endif
 										<span class="title">CART</span>
 									</div>
 								</a>
@@ -149,6 +136,7 @@
 								</a>
 							</div>
 						</div>
+
 
 					</div>
 				</div>
@@ -205,7 +193,7 @@
 							<i class="fa fa-recycle" aria-hidden="true"></i>
 							<div class="wrap-left-info">
 								<h4 class="fc-name">Customized Order</h4>
-								<p class="fc-desc">30 Days Money Back</p>
+								<p class="fc-desc">Get Your Order Cutomized</p>
 							</div>
 
 						</li>
@@ -252,7 +240,7 @@
 											</li>
 											<li>
 												<i class="fa fa-envelope" aria-hidden="true"></i>
-												<p class="contact-txt">Contact@yourcompany.com</p>
+												<p class="contact-txt">Contact@company.com</p>
 											</li>
 										</ul>
 									</div>
@@ -272,7 +260,7 @@
 								</div>
 							</div>
 
-							<div class="wrap-footer-item footer-item-second">
+							{{-- <div class="wrap-footer-item footer-item-second">
 								<h3 class="item-header">Sign up for newsletter</h3>
 								<div class="item-content">
 									<div class="wrap-newletter-footer">
@@ -283,7 +271,7 @@
 										</form>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 
 						</div>
 
@@ -298,7 +286,7 @@
 												<li class="menu-item"><a href="#" class="link-term">Register</a></li>
 												<li class="menu-item"><a href="#" class="link-term">Login</a></li>
 												<li class="menu-item"><a href="#" class="link-term">Cart</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Wish list</a></li>
+												<li class="menu-item"><a href="#" class="link-term">List</a></li>
 											</ul>
 										</div>
 									</div>
@@ -371,6 +359,15 @@
 				</div>
 			</div>
 
+				<div class="col-md-6 col-12 align-self-right">
+                    <div class="ltn__copyright-menu text-right">
+                        <div class = "call_whatsapp">
+                            <a href="https://wa.me/9779823664284?text=Hi, I am Interested. Please contact me as soon as possible.">
+                                    <img src="{{asset('assets/images/whats-app.jpeg')}}" class="whatsapp_float" width="100%" height="100%"> </a>
+                        </div>
+                    </div>
+				</div>
+
 			<div class="coppy-right-box">
 				<div class="container">
 					<div class="coppy-right-item item-left">
@@ -381,12 +378,26 @@
 			</div>
 		</div>
 	</footer>
-
+<style>
+    .whatsapp_float {
+        position: fixed;
+        width: 45px;
+        height: 45px;
+        bottom: 120px;
+        right: 15px;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 100;
+    }
+	</style>
 	<script src="{{asset('assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
 	<script src="{{asset('assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
 	<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('assets/js/jquery.flexslider.js')}}"></script>
-	<script src="{{asset('assets/js/chosen.jquery.min.js')}}"></script>
+	{{-- <script src="{{asset('assets/js/chosen.jquery.min.js')}}"></script> --}}
 	<script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
 	<script src="{{asset('assets/js/jquery.countdown.min.js')}}"></script>
 	<script src="{{asset('assets/js/jquery.sticky.js')}}"></script>

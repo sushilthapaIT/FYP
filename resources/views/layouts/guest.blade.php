@@ -68,8 +68,8 @@
 						<div class="topbar-menu left-menu">
 							<ul>
 								<li class="menu-item">
-									<a title="Hotline: (+123) 456 789" href="#"><span
-											class="icon label-before fa fa-mobile"></span>Hotline: (+123) 456 789</a>
+									<a title="Hotline: " href="#"><span
+											class="icon label-before fa fa-mobile"></span>Hotline: (+977) 9812345323</a>
 								</li>
 							</ul>
 						</div>
@@ -78,52 +78,25 @@
 								<!-- <li class="menu-item"><a title="Register or Login" href="login.html">Login</a></li>
 								<li class="menu-item"><a title="Register or Login" href="register.html">Register</a> -->
 								</li>
-								<li class="menu-item lang-menu menu-item-has-children parent">
+								{{-- <li class="menu-item lang-menu menu-item-has-children parent">
 									<a title="English" href="#"><span class="img label-before"><img
-												src="assets/images/lang-en.png" alt="lang-en"></span>English<i
-											class="fa fa-angle-down" aria-hidden="true"></i></a>
-									<ul class="submenu lang">
-										<li class="menu-item"><a title="hungary" href="#"><span
-													class="img label-before"><img src="assets/images/lang-hun.png"
-														alt="lang-hun"></span>Hungary</a></li>
-										<li class="menu-item"><a title="german" href="#"><span
-													class="img label-before"><img src="assets/images/lang-ger.png"
-														alt="lang-ger"></span>German</a></li>
-										<li class="menu-item"><a title="french" href="#"><span
-													class="img label-before"><img src="assets/images/lang-fra.png"
-														alt="lang-fre"></span>French</a></li>
-										<li class="menu-item"><a title="canada" href="#"><span
-													class="img label-before"><img src="assets/images/lang-can.png"
-														alt="lang-can"></span>Canada</a></li>
-									</ul>
+												src="{{asset('assets/images/lang-en.png')}}" alt="lang-en"></span>English lANG</i></a>
 								</li>
 								<li class="menu-item menu-item-has-children parent">
-									<a title="Dollar (USD)" href="#">Dollar (USD)<i class="fa fa-angle-down"
-											aria-hidden="true"></i></a>
-									<ul class="submenu curency">
-										<li class="menu-item">
-											<a title="Pound (GBP)" href="#">Pound (GBP)</a>
-										</li>
-										<li class="menu-item">
-											<a title="Euro (EUR)" href="#">Euro (EUR)</a>
-										</li>
-										<li class="menu-item">
-											<a title="Dollar (USD)" href="#">Dollar (USD)</a>
-										</li>
-									</ul>
-								</li>
+									<a title="Nepalese (NPR)" href="https://www.nrb.org.np/forex/">Nepalese (NPR)</a>
+								</li> --}}
 								@if(Route::has('login'))    
 								@auth
 									@if(Auth::user()->utype === 'ADM')
 										<li class="menu-item menu-item-has-children parent" >
-											<a title="My Account" href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+											<a title="My Account" href="#">My Account ({{Auth::user()->name}})</a>
 											<ul class="submenu curency" >
 										<li class="menu-item" >
 											<a title="admin dashboard" href="{{route('admin.dashboard')}}">Dashboard</a>
 										</li>
 										<li class="menu-item">
-													<a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-												</li>
+											<a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+										</li>
 										<form id="logout-form" method="POST" action="{{route('logout')}}">
 												@csrf						
 											</form>
@@ -159,37 +132,29 @@
 					<div class="mid-section main-info-area">
 
 						<div class="wrap-logo-top left-section">
-							<a href="index.html" class="link-to-home"><img src="assets/images/logo-top-1.png"
+							<a href="/" class="link-to-home"><img src="{{asset('assets/images/logo-top-1.png')}}"
 									alt="logo"></a>
 						</div>
 
-						<div class="wrap-search center-section">
-							<div class="wrap-search-form">
-								<form action="#" id="form-search-top" name="form-search-top">
-									<input type="text" name="search" value="" placeholder="Search here...">
-									<button form="form-search-top" type="button"><i class="fa fa-search"
-											aria-hidden="true"></i></button>
-									<div class="wrap-list-cate">
-										<input type="hidden" name="product-cate" value="0" id="product-cate">
-										<a href="#" class="link-control">All Category</a>
-										<ul class="list-cate">
-											<li class="level-0">All Category</li>
-											<li class="level-1">-Electronics</li>
-											<li class="level-1">-Smartphone & Table</li>
-											<li class="level-1">-Electronics</li>
-											<li class="level-1">-Smartphone & Table</li>
-										</ul>
-									</div>
-								</form>
-							</div>
-						</div>
+							@livewire('header-search-component')
 
 						<div class="wrap-icon right-section">
+							<div class="wrap-icon-section wishlist">
+								<a href="#" class="link-direction">
+									<i class="fa fa-heart" aria-hidden="true"></i>
+									<div class="left-info">
+										<span class="title">Custom</span>
+										<span class="title">Order</span>
+									</div> 
+								</a>
+							</div>
 							<div class="wrap-icon-section minicart">
 								<a href="#" class="link-direction">
-									<i class="fa fa-shopping-basket" aria-hidden="true"></i>
+									<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 									<div class="left-info">
-										<span class="index">4 items</span>
+										@if(Cart::count() > 0)
+										<span class="index">{{Cart::count()}} items</span>
+										@endif
 										<span class="title">CART</span>
 									</div>
 								</a>
@@ -203,9 +168,11 @@
 							</div>
 						</div>
 
+
 					</div>
 				</div>
 
+				
 				<div class="nav-section header-sticky">
 					<div class="primary-nav-section">
 						<div class="container">
@@ -246,26 +213,26 @@
 				<div class="container">
 					<ul>
 						<li class="fc-info-item">
-							<i class="fa fa-truck" aria-hidden="true"></i>
+							<i class="fa fa-money" aria-hidden="true"></i>
 							<div class="wrap-left-info">
-								<h4 class="fc-name">Free Shipping</h4>
-								<p class="fc-desc">Free On Oder Over $99</p>
+								<h4 class="fc-name">Subscription</h4>
+								<p class="fc-desc">Get discount on subscription</p>
 							</div>
 
 						</li>
 						<li class="fc-info-item">
 							<i class="fa fa-recycle" aria-hidden="true"></i>
 							<div class="wrap-left-info">
-								<h4 class="fc-name">Guarantee</h4>
-								<p class="fc-desc">30 Days Money Back</p>
+								<h4 class="fc-name">Customized Order</h4>
+								<p class="fc-desc">Get Your Order Cutomized</p>
 							</div>
 
 						</li>
 						<li class="fc-info-item">
-							<i class="fa fa-credit-card-alt" aria-hidden="true"></i>
+							<i class="fa fa-truck" aria-hidden="true"></i>
 							<div class="wrap-left-info">
-								<h4 class="fc-name">Safe Payment</h4>
-								<p class="fc-desc">Safe your online payment</p>
+								<h4 class="fc-name">Home Delivery</h4>
+								<p class="fc-desc">Upto your doorstep</p>
 							</div>
 
 						</li>
@@ -296,16 +263,15 @@
 										<ul>
 											<li>
 												<i class="fa fa-map-marker" aria-hidden="true"></i>
-												<p class="contact-txt">45 Grand Central Terminal New York,NY 1017 United
-													State USA</p>
+												<p class="contact-txt">Kathmandu, Nepal, -05</p>
 											</li>
 											<li>
 												<i class="fa fa-phone" aria-hidden="true"></i>
-												<p class="contact-txt">(+123) 456 789 - (+123) 666 888</p>
+												<p class="contact-txt">(+977) 9812345323</p>
 											</li>
 											<li>
 												<i class="fa fa-envelope" aria-hidden="true"></i>
-												<p class="contact-txt">Contact@yourcompany.com</p>
+												<p class="contact-txt">Contact@company.com</p>
 											</li>
 										</ul>
 									</div>
@@ -320,12 +286,12 @@
 								<div class="item-content">
 									<div class="wrap-hotline-footer">
 										<span class="desc">Call Us toll Free</span>
-										<b class="phone-number">(+123) 456 789 - (+123) 666 888</b>
+										<b class="phone-number"> (+977) 9812345323</b>
 									</div>
 								</div>
 							</div>
 
-							<div class="wrap-footer-item footer-item-second">
+							{{-- <div class="wrap-footer-item footer-item-second">
 								<h3 class="item-header">Sign up for newsletter</h3>
 								<div class="item-content">
 									<div class="wrap-newletter-footer">
@@ -336,7 +302,7 @@
 										</form>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 
 						</div>
 
@@ -348,11 +314,10 @@
 										<div class="wrap-vertical-nav">
 											<ul>
 												<li class="menu-item"><a href="#" class="link-term">My Account</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Brands</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Gift
-														Certificates</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Affiliates</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Wish list</a></li>
+												<li class="menu-item"><a href="#" class="link-term">Register</a></li>
+												<li class="menu-item"><a href="#" class="link-term">Login</a></li>
+												<li class="menu-item"><a href="#" class="link-term">Cart</a></li>
+												<li class="menu-item"><a href="#" class="link-term">List</a></li>
 											</ul>
 										</div>
 									</div>
@@ -366,7 +331,6 @@
 												<li class="menu-item"><a href="#" class="link-term">Returns</a></li>
 												<li class="menu-item"><a href="#" class="link-term">Site Map</a></li>
 												<li class="menu-item"><a href="#" class="link-term">Specials</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Order History</a>
 												</li>
 											</ul>
 										</div>
@@ -381,10 +345,10 @@
 
 						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
 							<div class="wrap-footer-item">
-								<h3 class="item-header">We Using Safe Payments:</h3>
+								<h3 class="item-header">Customized Order</h3>
 								<div class="item-content">
 									<div class="wrap-list-item wrap-gallery">
-										<img src="assets/images/payment.png" style="max-width: 260px;">
+										<img src="{{asset('assets/images/customorder.png')}}" style="max-width: 260px;">
 									</div>
 								</div>
 							</div>
@@ -412,27 +376,59 @@
 							</div>
 						</div>
 
-
+						<div class="col-lg-4 col-sm-4 col-md-4 col-xs-12">
+							<div class="wrap-footer-item">
+								<h3 class="item-header">Customized Order</h3>
+								<div class="item-content">
+									<div class="wrap-list-item wrap-gallery">
+										<img src="{{asset('assets/images/customorder.png')}}" style="max-width: 260px;">
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 
+				<div class="col-md-6 col-12 align-self-right">
+                    <div class="ltn__copyright-menu text-right">
+                        <div class = "call_whatsapp">
+                            <a href="https://wa.me/9779823664284?text=Hi, I am Interested. Please contact me as soon as possible.">
+                                    <img src="{{asset('assets/images/whats-app.jpeg')}}" class="whatsapp_float" width="100%" height="100%"> </a>
+                        </div>
+                    </div>
+				</div>
+
 			<div class="coppy-right-box">
 				<div class="container">
 					<div class="coppy-right-item item-left">
-						<p class="coppy-right-text">Copyright ©. All rights reserved</p>
+						<p  class="coppy-right-text">Copyright ©. All rights reserved</p>
 					</div>
 					<div class="clearfix"></div>
 				</div>
 			</div>
 		</div>
 	</footer>
-
+<style>
+    .whatsapp_float {
+        position: fixed;
+        width: 45px;
+        height: 45px;
+        bottom: 120px;
+        right: 15px;
+        color: #FFF;
+        border-radius: 50px;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 3px #999;
+        z-index: 100;
+    }
+	</style>
 	<script src="{{asset('assets/js/jquery-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
 	<script src="{{asset('assets/js/jquery-ui-1.12.4.minb8ff.js?ver=1.12.4')}}"></script>
 	<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
 	<script src="{{asset('assets/js/jquery.flexslider.js')}}"></script>
-	<script src="{{asset('assets/js/chosen.jquery.min.js')}}"></script>
+	{{-- <script src="{{asset('assets/js/chosen.jquery.min.js')}}"></script> --}}
 	<script src="{{asset('assets/js/owl.carousel.min.js')}}"></script>
 	<script src="{{asset('assets/js/jquery.countdown.min.js')}}"></script>
 	<script src="{{asset('assets/js/jquery.sticky.js')}}"></script>

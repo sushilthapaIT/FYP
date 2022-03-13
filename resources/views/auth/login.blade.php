@@ -1,12 +1,11 @@
-
-    <x-guest-layout>
+<x-guest-layout>
         	<main id="main" class="main-site left-sidebar">
 
-		<div class="container">
+				<div class="container">
 
 			<div class="wrap-breadcrumb">
 				<ul>
-					<li class="item-link"><a href="/" class="link">home</a></li>
+					<li class="item-link"><a href="/" class="link">Home</a></li>
 					<li class="item-link"><span>login</span></li>
 				</ul>
 			</div>
@@ -47,4 +46,4 @@
 		</div><!--end container-->
 
 	</main>
-    </x-guest-layout>
+</x-guest-layout>
