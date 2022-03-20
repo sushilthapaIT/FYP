@@ -7,12 +7,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Bakery</title>
 	<link rel="shortcut icon" type="image/x-icon" href="assets/images/logo-top-1.png">
-	<link
-		href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext"
-		rel="stylesheet">
-	<link
-		href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext"
-		rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400italic,700,700italic,900,900italic&amp;subset=latin,latin-ext" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Open%20Sans:300,400,400italic,600,600italic,700,700italic&amp;subset=latin,latin-ext" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/animate.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/font-awesome.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/bootstrap.min.css')}}">
@@ -21,6 +17,8 @@
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/chosen.min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/color-01.css')}}">
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
     @livewireStyles
 </head>
 
@@ -57,10 +55,22 @@
 											<a title="My Account" href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 											<ul class="submenu curency" >
 										<li class="menu-item" >
-											<a title="admin dashboard" href="{{route('admin.dashboard')}}">Dashboard</a>
-										</li>
+											<a title="Dashboard" href="{{route('admin.dashboard')}}">Dashboard</a>
+										</li>	
 										<li class="menu-item" >
 											<a title="Categories" href="{{route('admin.categories')}}">Categories</a>
+										</li>
+										<li class="menu-item" >
+											<a title="Products" href="{{route('admin.products')}}">All Products</a>
+										</li>
+										<li class="menu-item" >
+											<a title="Manage Home Categories" href="{{route('admin.homecategories')}}">Manage Home Categories</a>
+										</li>
+										<li class="menu-item" >
+											<a title="All Orders" href="{{route('admin.orders')}}">All Orders</a>
+										</li>
+										<li class="menu-item" >
+											<a title="Contact Messages" href="{{route('admin.contact')}}">Contact Messages</a>
 										</li>
 										<li class="menu-item">
 											<a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
@@ -75,12 +85,17 @@
 											<a title="My Account" href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 											<ul class="submenu curency" >
 										<li class="menu-item" >
-											<a title="User Dashboard" href="{{route('user.dashboard')}}">Dashboard</a>
+											<a title="Dashboard" href="{{ route('user.dashboard') }}">Dashboard</a>
 										</li>
-										
+										<li class="menu-item" >
+											<a title="My Orders" href="{{ route('user.orders') }}">My Orders</a>
+										</li>
+										<li class="menu-item" >
+											<a title="Change Password" href="{{ route('user.changepassword') }}">Change Password</a>
+										</li>
 										<li class="menu-item">
-													<a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
-												</li>
+											<a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+										</li>
 										<form id="logout-form" method="POST" action="{{route('logout')}}">
 												@csrf						
 											</form>
@@ -162,7 +177,7 @@
 									<a href="/checkout" class="link-term mercado-item-title"><i class="fa fa-check-circle" aria-hidden="true"> Checkout</i></a>
 								</li>
 								<li class="menu-item">
-									<a href="contact-us.html" class="link-term mercado-item-title"><i class="fa fa-phone" aria-hidden="true"> Contact Us</i></a>
+									<a href="/contact-us" class="link-term mercado-item-title"><i class="fa fa-phone" aria-hidden="true"> Contact Us</i></a>
 								</li>
 							</ul>
 						</div>
@@ -200,8 +215,8 @@
 						<li class="fc-info-item">
 							<i class="fa fa-truck" aria-hidden="true"></i>
 							<div class="wrap-left-info">
-								<h4 class="fc-name">Home Delivery</h4>
-								<p class="fc-desc">Upto your doorstep</p>
+								<h4 class="fc-name">Normal Order</h4>
+								<p class="fc-desc">Get Your Order</p>
 							</div>
 
 						</li>
@@ -362,7 +377,7 @@
 				<div class="col-md-6 col-12 align-self-right">
                     <div class="ltn__copyright-menu text-right">
                         <div class = "call_whatsapp">
-                            <a href="https://wa.me/9779823664284?text=Hi, I am Interested. Please contact me as soon as possible.">
+                            <a href="https://wa.me/9779823664284?text=Hi, I am Interested in your Bakery items. Please contact me as soon as possible.">
                                     <img src="{{asset('assets/images/whats-app.jpeg')}}" class="whatsapp_float" width="100%" height="100%"> </a>
                         </div>
                     </div>
@@ -402,7 +417,12 @@
 	<script src="{{asset('assets/js/jquery.countdown.min.js')}}"></script>
 	<script src="{{asset('assets/js/jquery.sticky.js')}}"></script>
 	<script src="{{asset('assets/js/functions.js')}}"></script>
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
     @livewireScripts
+
+	@stack('scripts')
+	
 </body>
 
 </html>
