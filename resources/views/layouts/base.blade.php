@@ -90,9 +90,9 @@
 										<li class="menu-item" >
 											<a title="My Orders" href="{{ route('user.orders') }}">My Orders</a>
 										</li>
-										<li class="menu-item" >
+										{{-- <li class="menu-item" >
 											<a title="Change Password" href="{{ route('user.changepassword') }}">Change Password</a>
-										</li>
+										</li> --}}
 										<li class="menu-item">
 											<a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
 										</li>
@@ -124,11 +124,11 @@
 
 						<div class="wrap-icon right-section">
 							<div class="wrap-icon-section wishlist">
-								<a href="#" class="link-direction">
+								<a href="/" class="link-direction">
 									<i class="fa fa-heart" aria-hidden="true"></i>
 									<div class="left-info">
 										<span class="title">Custom</span>
-										<span class="title">Order</span>
+										{{-- <span class="title">Order</span> --}}
 									</div> 
 								</a>
 							</div>
@@ -200,7 +200,7 @@
 							<i class="fa fa-money" aria-hidden="true"></i>
 							<div class="wrap-left-info">
 								<h4 class="fc-name">Subscription</h4>
-								<p class="fc-desc">Get discount on subscription</p>
+								<p class="fc-desc">Get Custom Order Feature </p>
 							</div>
 
 						</li>
@@ -275,7 +275,7 @@
 								</div>
 							</div>
 
-							{{-- <div class="wrap-footer-item footer-item-second">
+							<div class="wrap-footer-item footer-item-second">
 								<h3 class="item-header">Sign up for newsletter</h3>
 								<div class="item-content">
 									<div class="wrap-newletter-footer">
@@ -286,7 +286,10 @@
 										</form>
 									</div>
 								</div>
-							</div> --}}
+							</div>
+							<div>
+								<livewire:newsletter.form />
+							</div>
 
 						</div>
 

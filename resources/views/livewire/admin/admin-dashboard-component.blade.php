@@ -130,8 +130,8 @@
                                 <tr>
                                     <th>OrderId</th>
                                     <th>Subtotal</th>
-                                    <th>Discount</th>
-                                    <th>Tax</th>
+                                    {{-- <th>Discount</th>
+                                    <th>Tax</th> --}}
                                     <th>First Name</th>
                                     <th>Last Name</th>
                                     <th>Mobile</th>
@@ -147,8 +147,8 @@
                                     <tr>
                                         <td>{{ $order->id }}</td>
                                         <td>NPR{{ $order->subtotal }}</td>
-                                        <td>NPR{{ $order->discount }}</td>
-                                        <td>NPR{{ $order->tax }}</td>
+                                        {{-- <td>NPR{{ $order->discount }}</td> --}}
+                                        {{-- <td>NPR{{ $order->tax }}</td> --}}
                                         <td>NPR{{ $order->total }}</td>
                                         <td>{{ $order->firstname }}</td>
                                         <td>{{ $order->lastname }}</td>

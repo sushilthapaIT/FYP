@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('order_item', function (Blueprint $table) {
+        Schema::table('order_items', function (Blueprint $table) {
             $table->boolean('rstatus')->default(false);
         });
     }
@@ -25,7 +25,7 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('order_item', function (Blueprint $table) {
+        Schema::table('order_items', function (Blueprint $table) {
             $table->boolean('rstatus')->default(false);
         });
     }

@@ -61,10 +61,10 @@
 										 data-modify-coloring="false"
 										 data-title_maps="Kute themes"
 										 data-phone="088-465 9965 02"
-										 data-email="kutethemes@gmail.com"
+										 data-email="ok@gmail.com"
 										 data-address="Z115 TP. Thai Nguyen"
-										 data-longitude="-0.120850"
-										 data-latitude="51.508742"
+										 data-longitude="84.1240"
+										 data-latitude="28.3949"
 										 data-pin-icon=""
 										 data-zoom="16"
 										 data-map-type="ROADMAP"
@@ -78,7 +78,7 @@
 										<i class="fa fa-envelope" aria-hidden="true"></i>
 										<div class="right-info">
 											<b>Email</b>
-											<p>Support1@Mercado.com</p>
+											<p>Support1@bakery.com</p>
 										</div>
 									</div>
 
@@ -86,7 +86,7 @@
 										<i class="fa fa-phone" aria-hidden="true"></i>
 										<div class="right-info">
 											<b>Phone</b>
-											<p>0123-465-789-111</p>
+											<p>+977-123123423</p>
 										</div>
 									</div>
 
@@ -94,7 +94,7 @@
 										<i class="fa fa-map-marker" aria-hidden="true"></i>
 										<div class="right-info">
 											<b>Mail Office</b>
-											<p>Sed ut perspiciatis unde omnis<br />Street Name, Los Angeles</p>
+											<p>Kathmandu<br />Nepal, 08</p>
 										</div>
 									</div>
 

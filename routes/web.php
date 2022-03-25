@@ -1,6 +1,5 @@
 <?php
 use App\Http\Livewire\Admin\AdminAddCategoryComponent;
-use App\Http\Livewire\Admin\AdminAddHomeSliderComponent;
 use App\Http\Livewire\Admin\AdminAddProductComponent;
 use App\Http\Livewire\Admin\AdminCategoryComponent;
 use App\Http\Livewire\Admin\AdminDashboardComponent;
@@ -11,6 +10,7 @@ use App\Http\Livewire\Admin\AdminHomeCategoryComponent;
 use App\Http\Livewire\Admin\AdminProductComponent;
 use App\Http\Livewire\Admin\AdminSaleComponent;
 use App\Http\Livewire\CartComponent;
+use App\Http\Livewire\CustomComponent;
 use App\Http\Livewire\CategoryComponent;
 use App\Http\Livewire\CheckoutComponent;
 use App\Http\Livewire\DetailsComponent;
@@ -42,7 +42,7 @@ Route::get('/shop', \App\Http\Livewire\ShopComponent::class);  //Shop
 
 Route::get('/cart', \App\Http\Livewire\CartComponent::class)->name('product.cart'); //cart route
 
-Route::get('/checkout', \App\Http\Livewire\CheckoutComponent::class)->name('product.checkout'); //checkout route
+Route::get('/checkout', \App\Http\Livewire\CheckoutComponent::class); //checkout route
 
 Route::get('/search',\App\Http\Livewire\SearchComponent::class)->name('product.search');
 
@@ -64,13 +64,13 @@ Route::middleware(['auth:sanctum','verified'])->group(function(){
     Route::get('/user/orders',[\App\Http\Livewire\UserOrdersComponent::class])->name('user.orders');
     Route::get('/user/orders/{order_id}',[\App\Http\Livewire\UserOrderDetailsComponent::class])->name('user.orderdetails');
     Route::get('/user/review/{order_item_id}',[\App\Http\Livewire\UserReviewComponent::class])->name('user.review');
-    Route::get('/user/change-password',[\App\Http\Livewire\UserChangePasswordComponent::class])->name('user.changepassword');
+    // Route::get('/user/change-password',[\App\Http\Livewire\UserChangePasswordComponent::class])->name('user.changepassword');
 });
 
 //for admin
 Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function(){
     Route::get('/admin/dashboard',AdminDashboardComponent::class)->name('admin.dashboard');
-    Route::get('/admin/categories',[\App\Http\Livewire\AdminCategoryComponent::class])->name('admin.categories');
+    Route::get('/admin/categories',AdminCategoryComponent::class)->name('admin.categories');
     Route::get('/admin/category/add',[\App\Http\Livewire\AdminAddCategoryComponent::class])->name('admin.addcategory');
     Route::get('/admin/category/edit/{category_slug}',[\App\Http\Livewire\AdminEditCategoryComponent::class])->name('admin.editcategory');
     Route::get('/admin/products',[\App\Http\Livewire\AdminProductComponent::class])->name('admin.products');
