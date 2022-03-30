@@ -12,27 +12,31 @@ class CartComponent extends Component
 {
     public function increaseQuantity($rowId)    //function for increase quantity in cart
     {
-        $product = Cart::get($rowId);
+        $product = Cart::instance('cart')->get($rowId);
         $qty = $product->qty + 1;
-        Cart::update($rowId,$qty);
+        Cart::instance('cart')->update($rowId,$qty);
+         $this->emitTo('cart-count-component','refreshComponent');
     }
 
     public function decreaseQuantity($rowId)    //function for decrease quantity in cart
     {
-        $product = Cart::get($rowId);
+        $product = Cart::instance('cart')->get($rowId);
         $qty = $product->qty - 1;
-        Cart::update($rowId,$qty);
+        Cart::instance('cart')->update($rowId,$qty);
+        $this->emitTo('cart-count-component','refreshComponent');
     }
     
     public function destroy($rowId)
     {
-        Cart::remove($rowId);
+        Cart::instance('cart')->remove($rowId);
+        $this->emitTo('cart-count-component','refreshComponent');
         session()->flash('success_message','Item has been removed');
     }
 
     public function destroyAll()
     {
-        Cart::destroy();
+        Cart::instance('cart')->destroy();
+        $this->emitTo('cart-count-component','refreshComponent');
     }
 
     public function switchToSaveForLater($rowId)
@@ -59,11 +63,11 @@ class CartComponent extends Component
         session()->flash('s_success_message','Item has been removed from save for later');
     }
 
-    public function checkout()
+    public function addToCart()
     {
         if(Auth::check())
         {
-            return redirect()->route('checkout');
+            return redirect()->route('cart');
         }
         else
         {

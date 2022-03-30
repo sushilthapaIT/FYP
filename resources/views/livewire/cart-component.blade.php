@@ -9,17 +9,17 @@
 				</ul>
 			</div>
 			<div class=" main-content-area">
-				@if(Cart::instance('cart')->count() > 0)
+				@if(Cart::instance('cart')->instance('cart')->count() > 0)
 				<div class="wrap-iten-in-cart">
 					@if(Session::has('success_message'))
 						<div class="alert alert-success">
 							<strong>Success</strong> {{Session::get('success_message')}}
 						</div>
 					@endif
-					@if(Cart::instance('cart')->count() > 0)
+					@if(Cart::instance('cart')->instance('cart')->count() > 0)
 					<h3 class="box-title">Products Name</h3>
 					<ul class="products-cart">
-						@foreach (Cart::instance('cart')->content() as $item)
+						@foreach (Cart::instance('cart')->instance('cart')->content() as $item)
 						<li class="pr-cart-item">
 							<div class="product-image">
 								<figure><img src="{{asset('assets/images/products')}}/{{ $item->model->image }}" alt="{{ $item->model->nane }}"></figure>
@@ -56,7 +56,7 @@
 				<div class="summary">
 					<div class="order-summary">
 						<h4 class="title-box">Order Summary</h4>
-						<p class="summary-info total-info "><span class="title">Total</span><b class="index">NPR {{ Cart::subtotal() }}</b></p>
+						<p class="summary-info total-info "><span class="title">Total</span><b class="index">NPR {{ Cart::instance('cart')->subtotal() }}</b></p>
 					</div>
 					<div class="checkout-info">
 						<a class="btn btn-checkout" href="#" wire:click.prevent="checkout">Check out</a>

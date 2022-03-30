@@ -135,30 +135,16 @@
 
 				<div class="summary summary-checkout">
 					<div class="summary-item payment-method">
-						<h4 class="title-box">Payment Method</h4>
-						<p class="summary-info"><span class="title">Check / Money order</span></p>
-						<p class="summary-info"><span class="title">Credit Cart (saved)</span></p>
 						<div class="choose-payment-methods">
 							<label class="payment-method">
 								<input name="payment-method" id="payment-method-bank" value="cod" type="radio" wire:model="paymentmode">
 								<span>Cash on Delivery</span>
 								<span class="payment-desc">Order Now Pay on Delivery</span>
 							</label>
-							<label class="payment-method">
-								<input name="payment-method" id="payment-method-visa" value="card" type="radio" wire:model="paymentmode">
-								<span>Debit/Credit Card</span>
-								<span class="payment-desc">There are many variations of passages of Lorem Ipsum available</span>
-							</label>
-							<label class="payment-method">
-								<input name="payment-method" id="payment-method-paypal" value="paypal" type="radio" wire:model="paymentmode">
-								<span>Paypal</span>
-								<span class="payment-desc">You can pay with your credit</span>
-								<span class="payment-desc">card if you don't have a paypal account</span>
-							</label>
 								@error('paymentmode') <span class="text-danger">{{ $message }}</span>@enderror
 						</div>
 						@if(Session::has('checkout'))
-							<p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">NPR {{ Session::get('checkout')['total'] }}</span></p>
+							<p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">NPR {{ Session::get('checkout')['subtotal'] }}</span></p>
 						@endif
 						<button type="submit" class="btn btn-medium">Place order now</button>
 					</div>

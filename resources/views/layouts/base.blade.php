@@ -52,7 +52,7 @@
 								@auth
 									@if(Auth::user()->utype === 'ADM')
 										<li class="menu-item menu-item-has-children parent" >
-											<a title="My Account" href="#">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
+											<a title="My Account" href="{{ route('admin.dashboard') }}">My Account ({{Auth::user()->name}})<i class="fa fa-angle-down" aria-hidden="true"></i></a>
 											<ul class="submenu curency" >
 										<li class="menu-item" >
 											<a title="Dashboard" href="{{route('admin.dashboard')}}">Dashboard</a>
@@ -114,35 +114,19 @@
 
 				<div class="container">
 					<div class="mid-section main-info-area">
-
 						<div class="wrap-logo-top left-section">
-							<a href="/" class="link-to-home"><img src="{{asset('assets/images/logo-top-1.png')}}"
-									alt="logo"></a>
+							<a href="/" class="link-to-home"><img src="{{asset('assets/images/logo-top-1.png')}}"									alt="logo"></a>
 						</div>
 
 							@livewire('header-search-component')
 
 						<div class="wrap-icon right-section">
-							<div class="wrap-icon-section wishlist">
-								<a href="/" class="link-direction">
-									<i class="fa fa-heart" aria-hidden="true"></i>
-									<div class="left-info">
-										<span class="title">Custom</span>
-										{{-- <span class="title">Order</span> --}}
-									</div> 
-								</a>
-							</div>
-							<div class="wrap-icon-section minicart">
-								<a href="/cart" class="link-direction">
-									<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-									<div class="left-info">
-										@if(Cart::count() > 0)
-										<span class="index">{{Cart::count()}} items</span>
-										@endif
-										<span class="title">CART</span>
-									</div>
-								</a>
-							</div>
+
+							{{-- rendering wishlist --}}
+							@livewire('wishlist-count-component') 
+							{{-- rendering cart component --}}
+							@livewire('cart-count-component')
+
 							<div class="wrap-icon-section show-up-after-1024">
 								<a href="#" class="mobile-navigation">
 									<span></span>
@@ -165,13 +149,13 @@
 									<a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"> Home </i></a>
 								</li>
 								<li class="menu-item">
-									<a href="about-us.html" class="link-term mercado-item-title"><i class="fa fa-user-circle" aria-hidden="true"> About Us</i></a>
-								</li>
-								<li class="menu-item">
 									<a href="/shop" class="link-term mercado-item-title"><i class="fa fa-shopping-bag" aria-hidden="true"> Shop</i></a>
 								</li>
 								<li class="menu-item">
 									<a href="/cart" class="link-term mercado-item-title"><i class="fa fa-shopping-cart" aria-hidden="true"> Cart</i></a>
+								</li>
+								<li class="menu-item">
+									<a href="/customorder" class="link-term mercado-item-title"><i class="fa fa-user-circle" aria-hidden="true"> Custom Order</i></a>
 								</li>
 								<li class="menu-item">
 									<a href="/checkout" class="link-term mercado-item-title"><i class="fa fa-check-circle" aria-hidden="true"> Checkout</i></a>
