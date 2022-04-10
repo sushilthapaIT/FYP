@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\User;
 
+use App\Models\OrderItem;
 use Livewire\Component;
 
 class UserReviewComponent extends Component
@@ -34,7 +35,7 @@ class UserReviewComponent extends Component
         $review->comment = $this->comment;
         $review->order_item_id = $this->order_item_id;
         $review->save();
-
+        
         $orderItem = OrderItem::find($this->order_item_id);
         $orderItem->rstatus = true;
         $orderItem->save();

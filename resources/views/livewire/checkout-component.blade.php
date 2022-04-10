@@ -17,12 +17,12 @@
 					<div class="billing-address">
 						<p class="row-in-form">
 							<label for="fname">first name<span>*</span></label>
-							<input  type="text" name="fname" value="" placeholder="Your name" wire:model="firstname">
+							<input  type="text" name="firstname" value="" placeholder="Your first name" wire:model="firstname">
 							@error('firstname') <span class="text-danger">{{ $message }}</span>@enderror
 						</p>
 						<p class="row-in-form">
 							<label for="lname">last name<span>*</span></label>
-							<input  type="text" name="lname" value="" placeholder="Your last name" wire:model="lastname">
+							<input  type="text" name="lastname" value="" placeholder="Your last name" wire:model="lastname">
 							@error('lastname') <span class="text-danger">{{ $message }}</span>@enderror
 						</p>
 						<p class="row-in-form">
@@ -32,17 +32,17 @@
 						</p>
 						<p class="row-in-form">
 							<label for="phone">Phone number<span>*</span></label>
-							<input  type="number" name="phone" value="" placeholder="10 digits format" wire:model="mobile">
+							<input  type="number" name="mobile" value="" placeholder="10 digits format" wire:model="mobile">
 							@error('mobile') <span class="text-danger">{{ $message }}</span>@enderror
 						</p>
 						<p class="row-in-form">
 							<label for="add">line1:</label>
-							<input  type="text" name="add" value="" placeholder="Street at apartment number" wire:model="line1">
+							<input  type="text" name="line1" value="" placeholder="Street at apartment number" wire:model="line1">
 							@error('line1') <span class="text-danger">{{ $message }}</span>@enderror
 						</p>
 						<p class="row-in-form">
 							<label for="add">line2:</label>
-							<input  type="text" name="add" value="" placeholder="Street at apartment number" wire:model="line2">
+							<input  type="text" name="line2" value="" placeholder="Street at apartment number" wire:model="line2">
 						</p>
 						<p class="row-in-form">
 							<label for="country">Country<span>*</span></label>
@@ -61,7 +61,7 @@
 						</p>
 						<p class="row-in-form">
 							<label for="zip-code">Postcode / ZIP:</label>
-							<input  type="number" name="zip-code" value="" placeholder="Your postal code"  wire:model="zipcode">
+							<input  type="number" name="zipcode" value="" placeholder="Your postal code"  wire:model="zipcode">
 							@error('zipcode') <span class="text-danger">{{ $message }}</span>@enderror
 						</p>
 						<p class="row-in-form fill-wife">
@@ -108,7 +108,7 @@
 						</p>
 						<p class="row-in-form">
 							<label for="country">Country<span>*</span></label>
-							<input  type="text" name="country" value="" placeholder="United States" wire:model="s_country">
+							<input  type="text" name="country" value="" placeholder="Your Country" wire:model="s_country">
 							@error('s_country') <span class="text-danger">{{ $message }}</span>@enderror
 						</p>
 						<p class="row-in-form">
@@ -147,11 +147,6 @@
 							<p class="summary-info grand-total"><span>Grand Total</span> <span class="grand-total-price">NPR {{ Session::get('checkout')['subtotal'] }}</span></p>
 						@endif
 						<button type="submit" class="btn btn-medium">Place order now</button>
-					</div>
-					<div class="summary-item shipping-method">
-						<h4 class="title-box f-title">Shipping method</h4>
-						<p class="summary-info"><span class="title">Flat Rate</span></p>
-						<p class="summary-info"><span class="title">Fixed NPR 0.00</span></p>
 					</div>
 				</div>
 				</form>

@@ -7,8 +7,9 @@
     <title>Order Confirmation</title>
 </head>
 <body>
-    <p>Hi {{ $order->firstname }} {{ $order->lastname }}</p>
+    {{-- <p>Hi {{$order->firstname}} {{$order->lastname}}</p> --}}
     <p>Your order has been successfully placed.</p>
+    <br/>
 
     <table style="width: 600px; text-align:right;">
         <thead>
@@ -20,15 +21,15 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($order->orderItems as $item)
+            {{-- @foreach($order->orderItems as $item)
                 <tr>
                     <td><img src="{{ asset('assets/images/products') }}/{{ $item->product->image }}" width="100px" /></td>
                     <td>{{ $item->product->name }}</td>
                     <td>{{ $item->quantity }}</td>
                     <td>NPR {{ $item->price * $item->quantity }}</td>
                 </tr>
-                @endforeach
-            <tr>
+                @endforeach --}}
+            {{-- <tr>
                 <td colspan="3" style=" border-top:1px solid #ccc;"></td>
                 <td style="font-size: 15px; font-weignt:bold; border-top:1px solid #ccc;">Subtotal: NPR {{ $order->subtotal }}</td>
             </tr>
@@ -43,7 +44,7 @@
             <tr>
                 <td colspan="3"></td>
                 <td style="font-size: 22px; font-weignt:bold;">Tottal: NPR {{ $order->total }}</td>
-            </tr>
+            </tr> --}}
         </tbody>
     </table>
 </body>

@@ -11,6 +11,20 @@ class Order extends Model
 
     protected $table = "orders";
 
+    protected $fillable = [
+          'firstname',
+            'lastname',
+            'email', 
+            'mobile',
+            'line1' ,
+            'city' ,
+            'province' ,
+            'country' ,
+            'zipcode' ,
+            'paymentmode',
+    ];
+
+
     public function user()
     {
         return $this->belongsTo(User::class);

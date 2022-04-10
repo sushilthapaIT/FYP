@@ -63,9 +63,9 @@
 										<li class="menu-item" >
 											<a title="Products" href="{{route('admin.products')}}">All Products</a>
 										</li>
-										<li class="menu-item" >
+										{{-- <li class="menu-item" >
 											<a title="Manage Home Categories" href="{{route('admin.homecategories')}}">Manage Home Categories</a>
-										</li>
+										</li> --}}
 										<li class="menu-item" >
 											<a title="All Orders" href="{{route('admin.orders')}}">All Orders</a>
 										</li>
@@ -155,10 +155,10 @@
 									<a href="/cart" class="link-term mercado-item-title"><i class="fa fa-shopping-cart" aria-hidden="true"> Cart</i></a>
 								</li>
 								<li class="menu-item">
-									<a href="/customorder" class="link-term mercado-item-title"><i class="fa fa-user-circle" aria-hidden="true"> Custom Order</i></a>
+									<a href="/checkout" class="link-term mercado-item-title"><i class="fa fa-check-circle" aria-hidden="true"> Checkout</i></a>
 								</li>
 								<li class="menu-item">
-									<a href="/checkout" class="link-term mercado-item-title"><i class="fa fa-check-circle" aria-hidden="true"> Checkout</i></a>
+									<a href="/customorder" class="link-term mercado-item-title"><i class="fa fa-user-circle" aria-hidden="true"> Custom Order</i></a>
 								</li>
 								<li class="menu-item">
 									<a href="/contact-us" class="link-term mercado-item-title"><i class="fa fa-phone" aria-hidden="true"> Contact Us</i></a>
@@ -259,21 +259,21 @@
 								</div>
 							</div>
 
-							<div class="wrap-footer-item footer-item-second">
-								<h3 class="item-header">Sign up for newsletter</h3>
-								<div class="item-content">
-									<div class="wrap-newletter-footer">
-										<form action="#" class="frm-newletter" id="frm-newletter">
-											<input type="email" class="input-email" name="email" value=""
-												placeholder="Enter your email address">
-											<button class="btn-submit">Subscribe</button>
-										</form>
+							<form>
+								<div class="wrap-footer-item footer-item-second">
+									<h3 class="item-header">Sign up for newsletter</h3>
+									<div class="item-content">
+										<div class="wrap-newletter-footer">
+											<form action="#" class="frm-newletter" id="frm-newletter">
+												<input type="email" class="input-email" name="email" value=""
+													placeholder="Enter your email address">
+												<button class="btn-submit">Subscribe</button>
+											</form>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div>
-								<livewire:newsletter.form />
-							</div>
+							</form>
+							
 
 						</div>
 

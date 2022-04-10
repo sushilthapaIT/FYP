@@ -43,7 +43,7 @@
                                 @endforeach
                             </tbody>
                         </table>
-                        {{ $contacts->linkns() }}
+                        {{ $contacts->links() }}
                     </div>
                 </div>
             </div>

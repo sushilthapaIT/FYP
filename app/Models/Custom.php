@@ -5,11 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Contact extends Model
+class Custom extends Model
 {
     use HasFactory;
-
-    protected $table = "contacts";
-
-    protected $guarded = [];
+    protected $table = "custom";
 }

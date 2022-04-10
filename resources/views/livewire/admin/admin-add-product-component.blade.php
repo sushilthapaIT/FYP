@@ -1,5 +1,5 @@
 <div>
-    <div class="container" style="padding: 30pc 0;">
+    <div class="container" style="padding: 30px 0;">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -21,7 +21,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Product Name</label>
                                 <div class="col-md-4">
-                                    <input type="text" placeholder="Product Name" class="form-control input-md" wire:model="name" wire:keyuo="generateSlug"/>
+                                    <input type="text" placeholder="Product Name" class="form-control input-md" wire:model="name" wire:keyup="generateSlug"/>
                                     @error('name')
                                         <p class="text-danger">{{ $message }}</p>
                                     @enderror
@@ -45,7 +45,7 @@
                             </div>
 
                              <div class="form-group">
-                                <label class="col-md-4 control-label">Description</label>
+                                <label class="col-md-4 control-label">Recipes</label>
                                 <div class="col-md-4">
                                     <textarea class="form-control" placeholder="Description" wire:model="description"></textarea>
                                     @error('description') <p class="text-danger">{{ $message }}</p>@enderror
@@ -53,29 +53,29 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-md-4 control-label">Regular Price</label>
+                                <label class="col-md-4 control-label">Price</label>
                                 <div class="col-md-4">
                                     <input type="text" placeholder="Regular Price" class="form-control input-md" wire:model="regular_price"/>
                                     @error('regular_price') <p class="text-danger">{{ $message }}</p>@enderror
 
                                 </div>
                             </div>
-
+{{-- 
                              <div class="form-group">
                                 <label class="col-md-4 control-label">Sale Price</label>
                                 <div class="col-md-4">
                                     <input type="text" placeholder="Sale Price" class="form-control input-md" wire:model="sale_price"/>
                                     @error('sale_price') <p class="text-danger">{{ $message }}</p>@enderror
                                 </div>
-                            </div>
+                            </div> --}}
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label class="col-md-4 control-label">SKU</label>
                                 <div class="col-md-4">
                                     <input type="text" placeholder="SKU" class="form-control input-md" wire:model="SKU"/>
                                     @error('SKU') <p class="text-danger">{{ $message }}</p>@enderror
                                 </div>
-                            </div>
+                            </div> --}}
 
                              <div class="form-group">
                                 <label class="col-md-4 control-label">STOCK</label>
@@ -87,7 +87,7 @@
                                    @error('stock_status') <p class="text-danger">{{ $message }}</p>@enderror
                                 </div>
                             </div>
-
+{{-- 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Featured</label>
                                 <div class="col-md-4">
@@ -104,7 +104,7 @@
                                     <input type="text" placeholder="Quantity" class="form-control input-md" wire:model="quantity"/>
                                     @error('quantity') <p class="text-danger">{{ $message }}</p>@enderror
                                 </div>
-                            </div>
+                            </div> --}}
 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Product Image</label>
@@ -122,7 +122,7 @@
                                 <div class="col-md-4">
                                    <select class="form-control" wire:model="category_id">
                                         <option value="">Select Category</option>
-                                        @foreach ($categories as $Category)
+                                        @foreach ($categories as $category)
                                             <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
                                    </select>

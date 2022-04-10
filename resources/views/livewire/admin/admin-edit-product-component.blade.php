@@ -1,5 +1,5 @@
 <div>
-    <div class="container" style="padding: 30pc 0;">
+    <div class="container" style="padding: 30px 0;">
         <div class="row">
             <div class="col-md-12">
                 <div class="panel panel-default">
@@ -108,7 +108,7 @@
                                 <div class="col-md-4">
                                     <input type="file"  class="input-file" wire:model="newimage" />
                                     @if($newimage)
-                                        <img src="{{ $image->temporaryUrl() }}" width="120" />
+                                        <img src="{{ $newimage->temporaryUrl() }}" width="120" />
                                     @else
                                     <img src="{{ asset('assets/images/products') }}/{{ $image }}" width="120" />
                                     @endif

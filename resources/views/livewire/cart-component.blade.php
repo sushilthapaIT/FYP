@@ -59,7 +59,8 @@
 						<p class="summary-info total-info "><span class="title">Total</span><b class="index">NPR {{ Cart::instance('cart')->subtotal() }}</b></p>
 					</div>
 					<div class="checkout-info">
-						<a class="btn btn-checkout" href="#" wire:click.prevent="checkout">Check out</a>
+						<a class="btn btn-checkout" href="/checkout" >Check out</a>
+						{{-- wire:click.prevent="checkout" --}}
 						<a class="link-to-shop" href="/shop">Continue Shopping<i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
 					</div>
 					<div class="update-clear">

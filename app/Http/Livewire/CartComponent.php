@@ -80,7 +80,7 @@ class CartComponent extends Component
     {
         if(!Cart::instance('cart')->count() > 0)
         {
-            session()->forget('chechout');
+            session()->forget('checkout');
             return;
         }
         if(session()->has('coupon'))  
@@ -106,6 +106,11 @@ class CartComponent extends Component
     public function render()
     {
         $this->setAmountForCheckout();
+
+        if(Auth::user())
+        {
+            Cart::instance('cart')->store(Auth::user()->email);
+        }
         return view('livewire.cart-component')->layout("layouts.base");
     }
 }

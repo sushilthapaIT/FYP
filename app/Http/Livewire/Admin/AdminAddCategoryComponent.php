@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Category;
 use Livewire\Component;
 use Illuminate\Support\Str;
 
@@ -10,6 +11,8 @@ class AdminAddCategoryComponent extends Component
     public $name;
     public $slug;
 
+
+    // function for generating slug
     public function generateslug()
     {
             $this->slug = Str::slug($this->name);
@@ -23,7 +26,7 @@ class AdminAddCategoryComponent extends Component
         ]);
     }
 
-    public function soreCategory()
+    public function storeCategory()
     {
         $this->validate([
             'name' => 'required',
@@ -39,6 +42,7 @@ class AdminAddCategoryComponent extends Component
             
     public function render()
     {
-        return view('livewire.admin.admin-add-category-component')-layout('layouts.base');
+         $categories = Category::paginate(10);
+        return view('livewire.admin.admin-add-category-component',['categories'=>$categories])->layout('layouts.admin');
     }
 }
