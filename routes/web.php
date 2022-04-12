@@ -9,6 +9,7 @@ use App\Http\Livewire\Admin\AdminEditProductComponent;
 use App\Http\Livewire\Admin\AdminHomeCategoryComponent;
 use App\Http\Livewire\Admin\AdminOrderComponent;
 use App\Http\Livewire\User\UserOrderDetailsComponent;
+use App\Http\Livewire\Admin\AdminOrderDetailsComponent;
 use App\Http\Livewire\User\UserReviewComponent;
 use App\Http\Livewire\User\UserOrdersComponent;
 // use App\Http\Livewire\User\
@@ -22,8 +23,10 @@ use App\Http\Livewire\DetailsComponent;
 use App\Http\Livewire\HomeComponent;
 use App\Http\Livewire\SearchComponent;
 use App\Http\Livewire\ShopComponent;
+use App\Http\Livewire\SubscriptionComponent;
 use App\Http\Livewire\User\UserDashboardComponent;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Admin\AdminContactComponent;
 
 
 
@@ -64,6 +67,8 @@ Route::get('/thank-you',\App\Http\Livewire\ThankyouComponent::class)->name('than
     
 Route::get('/contact-us',\App\Http\Livewire\ContactComponent::class)->name('contact');
 
+Route::get('/subscription',\App\Http\Livewire\SubscriptionComponent::class)->name('subscription');
+
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 //     return view('dashboard');
 // })->name('dashboard');
@@ -90,9 +95,9 @@ Route::middleware(['auth:sanctum', 'verified', 'authadmin'])->group(function(){
 
     Route::get('/admin/home-categories',[\App\Http\Livewire\AdminHomeCategoryComponent::class])->name('admin.homecategories');
     Route::get('/admin/orders',AdminOrderComponent::class)->name('admin.orders');
-    Route::get('/admin/orders/{order_id}',[\App\Http\Livewire\AdminOrderDetailsComponent::class])->name('admin.orderdetails');
+    Route::get('/admin/orders/{order_id}', AdminOrderDetailsComponent::class)->name('admin.orderdetails');
 
-    Route::get('/admin/contact-us',[\App\Http\Livewire\AdminContactComponent::class])->name('admin.contact');
+    Route::get('/admin/contact-us',AdminContactComponent::class)->name('admin.contact');
 
 });
 

@@ -39,6 +39,7 @@
                             <tbody>
                                 @foreach ($orders as $order)
                                     <tr>
+                                        {{-- {{ dd($order) }} --}}
                                         <td>{{ $order->id }}</td>
                                         <td>NPR{{ $order->subtotal }}</td>
                                         <td>NPR{{ $order->discount }}</td>

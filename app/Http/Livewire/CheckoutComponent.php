@@ -162,7 +162,8 @@ class CheckoutComponent extends Component
         Cart::instance('cart')->destroy();
         session()->forget('checkout');
 
-        $this->sendOrderConfirmationMail($order);
+        // $this->sendOrderConfirmationMail($order);
+        return redirect()->route('thankyou');
     }
 
 

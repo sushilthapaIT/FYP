@@ -26,7 +26,7 @@
                                                     <p class="alert alert-success" role="alert">{{ Session::get('message') }}</p>
                                                 @endif
 												<div id="respond" class="comment-respond"> 
-													<form wire:submmit.prevent="addReview" id="commentform" class="comment-form">
+													<form wire:submit.prevent="addReview" id="commentform" class="comment-form" method="post">
 														<div class="comment-form-rating">
 															<span>Your rating</span>
 															<p class="stars">

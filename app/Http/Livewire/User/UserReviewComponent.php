@@ -4,7 +4,7 @@ namespace App\Http\Livewire\User;
 
 use App\Models\OrderItem;
 use Livewire\Component;
-
+use App\Models\Review;
 class UserReviewComponent extends Component
 {
     public $order_item_id;
@@ -30,12 +30,15 @@ class UserReviewComponent extends Component
             'rating' => 'required',
             'comment' => 'required'
         ]);
+        
         $review = new Review();
+       
         $review->rating = $this->rating;
+        //  {{ dd($this->rating); }}
         $review->comment = $this->comment;
         $review->order_item_id = $this->order_item_id;
         $review->save();
-        
+        // {{ dd('sdas'); }}
         $orderItem = OrderItem::find($this->order_item_id);
         $orderItem->rstatus = true;
         $orderItem->save();

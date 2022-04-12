@@ -15,6 +15,7 @@
                     </div>
                     <div class="panel-body">
                         <table class="table">
+                            {{-- {{ dd($order) }} --}}
                             <tr>
                                 <th>Order Id</th>
                                 <td>{{ $order->id }}</td>
@@ -28,6 +29,7 @@
                                 @elseif ($order->status == "canceled")
                                 <th>Cancellation Date</th>
                                 <td>{{ $order->canceled_date }}</td>
+                                @endif
                             </tr>
                         </table>
                     </div>
@@ -54,7 +56,7 @@
 						@foreach ($order->orderItems as $item)
 						<li class="pr-cart-item">
 							<div class="product-image">
-								<figure><img src="{{asset('assets/images/products')}}/{{ $item->product->image }}" alt="{{ $item->product->nane }}"></figure>
+								<figure><img src="{{asset('assets/images/products')}}/{{ $item->product->image }}" alt="{{ $item->product->name }}"></figure>
 							</div>
 							<div class="product-name">
 								<a class="link-to-product" href="{{ route('product.details',['slug'=>$item->product->slug]) }}">{{ $item->product->name }}</a>
@@ -71,10 +73,8 @@
                 <div class="summary">
                     <div class="order-summary">
                         <h4 class="title-box">Order Summary</h4>
-                        <p class="summary-info"><span class="title">Subtotal</span><b class="index">NPR {{ $order->subtotal }}</b></p>
-                        <p class="summary-info"><span class="title">Tax</span><b class="index">NPR {{ $order->tax }}</b></p>
-                        <p class="summary-info"><span class="title">Shipping</span><b class="index">Free Shipping}</b></p>
-                        <p class="summary-info"><span class="title">Total</span><b class="index">NPR {{ $order->total }}</b></p>
+                        <p class="summary-info"><span class="title">Total</span><b class="index">NPR {{ $order->subtotal }}</b></p>
+                        <p class="summary-info"><span class="title">Shipping</span><b class="index">Free Shipping</b></p>
                     </div>
                 </div>
                     </div>
@@ -173,30 +173,6 @@
         </div>
         @endif
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Transactions
-                    </div>
-                    <div class="panel-body">
-                        <table class="table">
-                            <tr>
-                                <th>Transaction Mode</th>
-                                <td>{{ $order->transaction->mode }}</td>
-                            </tr>
-                            <tr>
-                                <th>Status</th>
-                                <td>{{ $order->transaction->status }}</td>
-                            </tr>
-                            <tr>
-                                <th>Transaction Date</th>
-                                <td>{{ $order->transaction->created_at }}</td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
     </div>
 </div>

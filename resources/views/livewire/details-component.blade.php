@@ -120,7 +120,8 @@
 											}
 										</style>
 										<div id="comments">
-											<h2 class="woocommerce-Reviews-title">{{ $product->orderItems->where('rstatus',1) }} review for <span>{{ $product->name }}</span></h2>
+											{{-- {{ $product->orderItems->where('rstatus',1) }}  --}}
+											<h2 class="woocommerce-Reviews-title">review for <span>{{ $product->name }}</span></h2>
 											<ol class="commentlist">
 												@foreach ($product->orderItems->where('rstatus',1) as $orderItem)
 												<li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-20">
