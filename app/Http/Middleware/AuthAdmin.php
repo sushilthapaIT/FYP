@@ -19,10 +19,11 @@ class AuthAdmin
     {
         if(Auth::user()->utype === 'ADM')
         {
+            
             return $next($request);
         }
-        else
-        {
+        else{
+
             session()->flush(); //through flush method we can clear all of your session data
             return redirect()->route('login');
         }

@@ -14,7 +14,7 @@
 
 					<div class="banner-shop">
 						<a href="#" class="banner-link">
-							<figure><img src="{{asset('assets/images/2.jpg')}}" alt=""></figure>
+							{{-- <figure><img src="{{asset('assets/images/2.jpg')}}" alt=""></figure> --}}
 						</a>
 					</div>
 
@@ -36,7 +36,7 @@
 									<div class="product-info">
 										<a href="{{ route('product.details',['slug'=>$product->slug])}}" class="product-name"><span>{{ $product->name }}</span></a>
 										<div class="wrap-price"><span class="product-price">NPR {{ $product->regular_price }}</span></div>
-										<a href="#" class="btn add-to-cart" wire:click.prevent="store({{$product->id}},'{{ $product->name }}',{{ $product->regular_price }})">Add To Cart</a>
+										{{-- <a href="#" class="btn add-to-cart" wire:click.prevent="store({{$product->id}},'{{ $product->name }}',{{ $product->regular_price }})">Add To Cart</a> --}}
 									</div>
 								</div>
 							</li>

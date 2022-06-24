@@ -20,7 +20,17 @@ return new class extends Migration
             $table->string('eggless');
             $table->string('message');
             $table->string('note');
-            $table->string('images')->default('');
+            // $table->string('images')->default('');
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('mobile');
+            $table->string('email');
+            $table->string('line1');
+            $table->string('line2')->nullable();
+            $table->string('city');
+            $table->string('province');
+            $table->string('country');
+            $table->string('zipcode');
             $table->timestamps();
         });
     }

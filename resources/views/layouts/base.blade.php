@@ -144,9 +144,12 @@
 				<div class="nav-section header-sticky">
 					<div class="primary-nav-section">
 						<div class="container">
-							<ul style="padding-left: 250px;" class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu">
+							<ul style="padding-left: 150px;" class="nav primary clone-main-menu" id="mercado_main" data-menuname="Main menu">
 								<li class="menu-item home-icon">
 									<a href="/" class="link-term mercado-item-title"><i class="fa fa-home" aria-hidden="true"> Home </i></a>
+								</li>
+								<li class="menu-item">
+									<a href="/about" class="link-term mercado-item-title"><i class="fa fa-users" aria-hidden="true"> About Us</i></a>
 								</li>
 								<li class="menu-item">
 									<a href="/shop" class="link-term mercado-item-title"><i class="fa fa-shopping-bag" aria-hidden="true"> Shop</i></a>
@@ -184,7 +187,7 @@
 							<i class="fa fa-money" aria-hidden="true"></i>
 							<div class="wrap-left-info">
 								<h4 class="fc-name">Subscription</h4>
-								<p class="fc-desc">Get Custom Order Feature </p>
+								<p class="fc-desc">Get Subscription </p>
 							</div>
 
 						</li>
@@ -199,7 +202,7 @@
 						<li class="fc-info-item">
 							<i class="fa fa-truck" aria-hidden="true"></i>
 							<div class="wrap-left-info">
-								<h4 class="fc-name">Normal Order</h4>
+								<h4 class="fc-name">Order</h4>
 								<p class="fc-desc">Get Your Order</p>
 							</div>
 
@@ -261,14 +264,18 @@
 
 							<form>
 								<div class="wrap-footer-item footer-item-second">
-									<h3 class="item-header">Sign up for newsletter</h3>
+									{{-- <h3 class="item-header">Sign up for newsletter</h3> --}}
 									<div class="item-content">
 										<div class="wrap-newletter-footer">
-											<form action="#" class="frm-newletter" id="frm-newletter">
+											@if(Session::has('message'))
+									<div class="alert alert-success" role="alert">{{ Session::get('message') }}</div>
+								@endif
+								<form  name="form-contact" wire:submit.prevent="sendMessage">
+											{{-- <form  wire:submit.prevent="subscribe" class="frm-newletter" id="frm-newletter">
 												<input type="email" class="input-email" name="email" value=""
 													placeholder="Enter your email address">
 												<button class="btn-submit">Subscribe</button>
-											</form>
+											</form> --}}
 										</div>
 									</div>
 								</div>
@@ -284,11 +291,11 @@
 									<div class="item-content">
 										<div class="wrap-vertical-nav">
 											<ul>
-												<li class="menu-item"><a href="#" class="link-term">My Account</a></li>
+												<li class="menu-item"><a href="" class="link-term">My Account</a></li>
 												<li class="menu-item"><a href="#" class="link-term">Register</a></li>
 												<li class="menu-item"><a href="#" class="link-term">Login</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Cart</a></li>
-												<li class="menu-item"><a href="#" class="link-term">List</a></li>
+												<li class="menu-item"><a href="/cart" class="link-term">Cart</a></li>
+												{{-- <li class="menu-item"><a href="#" class="link-term">List</a></li> --}}
 											</ul>
 										</div>
 									</div>
@@ -299,9 +306,9 @@
 										<div class="wrap-vertical-nav">
 											<ul>
 												<li class="menu-item"><a href="#" class="link-term">Contact Us</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Returns</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Site Map</a></li>
-												<li class="menu-item"><a href="#" class="link-term">Specials</a></li>
+												<li class="menu-item"><a href="#" class="link-term">About Us</a></li>
+												<li class="menu-item"><a href="#" class="link-term">Shop</a></li>
+												<li class="menu-item"><a href="#" class="link-term">Custom Order</a></li>
 												</li>
 											</ul>
 										</div>

@@ -43,7 +43,7 @@
                             </div>
 
                              <div class="form-group">
-                                <label class="col-md-4 control-label">Description</label>
+                                <label class="col-md-4 control-label">Recipes</label>
                                 <div class="col-md-4">
                                     <textarea class="form-control" placeholder="Description" wire:model="description"></textarea>
                                      @error('description') <p class="text-danger">{{ $message }}</p> @enderror
@@ -58,21 +58,21 @@
                                 </div>
                             </div>
 
-                             <div class="form-group">
+                             {{-- <div class="form-group">
                                 <label class="col-md-4 control-label">Sale Price</label>
                                 <div class="col-md-4">
                                     <input type="text" placeholder="Sale Price" class="form-control input-md" wire:model="sale_price"/>
                                      @error('sale_price') <p class="text-danger">{{ $message }}</p> @enderror
                                 </div>
-                            </div>
+                            </div> --}}
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label class="col-md-4 control-label">SKU</label>
                                 <div class="col-md-4">
                                     <input type="text" placeholder="SKU" class="form-control input-md" wire:model="SKU"/>
                                      @error('SKU') <p class="text-danger">{{ $message }}</p> @enderror
                                 </div>
-                            </div>
+                            </div> --}}
 
                              <div class="form-group">
                                 <label class="col-md-4 control-label">STOCK</label>
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            {{-- <div class="form-group">
                                 <label class="col-md-4 control-label">Featured</label>
                                 <div class="col-md-4">
                                    <select class="form-control" wire:model="featured">
@@ -93,8 +93,8 @@
                                         <option value="1">Yes</option>
                                    </select>
                                 </div>
-                            </div>
-
+                            </div> --}}
+{{-- 
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Quantity</label>
                                 <div class="col-md-4">
@@ -102,7 +102,7 @@
                                      @error('quantity') <p class="text-danger">{{ $message }}</p> @enderror
                                 </div>
                             </div>
-
+ --}}
                             <div class="form-group">
                                 <label class="col-md-4 control-label">Product Image</label>
                                 <div class="col-md-4">

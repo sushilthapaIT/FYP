@@ -103,7 +103,7 @@
                 </div>
               </div>    
             </div>    
-            <div class="col-md-3 col-sm-6">    
+            {{-- <div class="col-md-3 col-sm-6">    
               <div class="icon-stat">    
                 <div class="row">
                   <div class="col-xs-8 text-left">
@@ -118,7 +118,7 @@
                   <i class="fa fa-clock-o"></i> Updated Now
                 </div>    
               </div>    
-            </div>    
+            </div>     --}}
           </div>      
           <div class="row">
             <div class="col-md-12">

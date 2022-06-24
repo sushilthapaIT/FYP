@@ -63,11 +63,17 @@
 										<li class="menu-item" >
 											<a title="Products" href="{{route('admin.products')}}">All Products</a>
 										</li>
-										{{-- <li class="menu-item" >
+										<li class="menu-item" >
 											<a title="Manage Home Categories" href="{{route('admin.homecategories')}}">Manage Home Categories</a>
-										</li> --}}
+										</li>
 										<li class="menu-item" >
 											<a title="All Orders" href="{{route('admin.orders')}}">All Orders</a>
+										</li>
+										<li class="menu-item" >
+											<a title="All Orders" href="{{route('admin.customorders')}}">Custom Orders</a>
+										</li>
+										<li class="menu-item" >
+											<a title="Subscriber" href="{{route('admin.subscribe')}}">Subscription</a>
 										</li>
 										<li class="menu-item" >
 											<a title="Contact Messages" href="{{route('admin.contact')}}">Contact Messages</a>

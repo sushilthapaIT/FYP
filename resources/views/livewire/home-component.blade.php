@@ -15,7 +15,7 @@
 					<div class="item-slide">
 						<img src="{{asset('assets/images/2.jpg')}}" alt="" class="img-slide">
 						<div class="slide-info slide-2">
-							<h2 class="f-title">Extra 5% Off</h2>
+							<h2 class="f-title"></h2>
 							<span style="color:rgb(0, 0, 19); font-size: 40px;" class="f-subtitle">On Subscription</span>
 							<p class="discount-code">Use Code: #FA6868</p>
 							{{-- <h4 class="s-title">Get Free</h4>
@@ -37,13 +37,13 @@
 			<!--BANNER-->
 			<div class="wrap-banner style-twin-default">
 				<div class="banner-item">
-					<a href="#" class="link-banner banner-effect-1">
+					<a href="/customorder" class="link-banner banner-effect-1">
 						<figure><img src="{{asset('assets/images/customorder.png')}}" alt="" width="580" height="190"></figure>
 					</a>
 				</div>
 				<div class="banner-item">
-					<a href="#" class="link-banner banner-effect-1">
-						<figure><img src="{{asset('assets/images/offer.png')}}" alt="" width="580" height="190"></figure>
+					<a href="/customorder" class="link-banner banner-effect-1">
+						<figure><img src="{{asset('assets/images/customorder.png')}}" alt="" width="580" height="190"></figure>
 					</a>
 				</div>
 			</div>
@@ -51,7 +51,7 @@
 
 			<!--Latest Products-->
 			<div class="wrap-show-advance-info-box style-1">
-				<h3 style=text-align:center; class="title-box">Cake</h3>
+				<h3 style=text-align:center; class="title-box">Latest Product</h3>
 				<div class="wrap-top-banner">
 					<a href="#" class="link-banner banner-effect-2">
 						<figure><img src="{{asset('assets/images/cakegallery.jpg')}}" width="1170" height="240" alt="">
@@ -70,14 +70,13 @@
 										<div class="product product-style-2 equal-elem ">
 											<div class="product-thumnail">
 												<a href="{{route('product.details',['slug'=>$lproduct->slug])}}" title="{{ $lproduct->name }}">
-													<figure><img src="{{asset('assets/images/products')}}/{{$lproduct->image}}" width="800"
-															height="800" alt="{{ $lproduct->name }}">
+													<figure><img style="height:200px; width:300px;" src="{{asset('assets/images/products')}}/{{$lproduct->image}}"  alt="{{ $lproduct->name }}">
 													</figure>
 												</a>
 											</div> 
 											<div class="product-info">
 												<a href="{{route('product.details',['slug'=>$lproduct->slug])}}" class="product-name"><span>{{ $lproduct->name }}</span></a>
-												<div class="wrap-price"><span class="product-price">{{ $lproduct->regular_price }}</span></div>
+												<div class="wrap-price"><span class="product-price">NPR {{ $lproduct->regular_price }}</span></div>
 											</div>
 										</div>		
 									@endforeach
@@ -92,8 +91,8 @@
 			<div class="wrap-show-advance-info-box style-1">
 				<h3 style=text-align:center; class="title-box">Bakery Items</h3>
 				<div class="wrap-top-banner">
-					<a href="#" class="link-banner banner-effect-2">
-						<figure><img src="{{asset('assets/images/cakegallery.jpg')}}" width="1170" height="240" alt=""></figure>
+					<a href="/subscribe" class="link-banner banner-effect-2">
+						<figure><img src="{{asset('assets/images/sub.png')}}" width="1170" height="240" alt=""></figure>
 					</a>
 				</div>
 				<div class="wrap-products">

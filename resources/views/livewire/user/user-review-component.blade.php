@@ -8,12 +8,12 @@
 											<ol class="commentlist">
 												<li class="comment byuser comment-author-admin bypostauthor even thread-even depth-1" id="li-comment-20">
 													<div id="comment-20" class="comment_container"> 
-														<img alt="" src="{{asset('assets/images/product')}}/{{ $orderItem->product->image }}" height="80" width="80">
+														{{-- <img alt="" src="{{asset('assets/images/product')}}/{{ $orderItem->product->image }}" height="80" width="80"> --}}
 														<div class="comment-text">
 															<p class="meta"> 
 																<strong class="woocommerce-review__author">{{ $orderItem->product->name }}</strong> 
 																<span class="woocommerce-review__dash">–</span>
-																<time class="woocommerce-review__published-date" datetime="2008-02-14 20:00" >Tue, Aug 15,  2017</time>
+																<time class="woocommerce-review__published-date" datetime="2008-02-14 20:00" >Sun, June 05,  2022</time>
 															</p>
 														</div>
 													</div>

@@ -20,11 +20,7 @@ return new class extends Migration
             $table->String('short_description')->nullable();
             $table->text('description');
             $table->decimal('regular_price');
-            // $table->decimal('sale_price')->nullable();
-            // $table->String('SKU');
             $table->enum('stock_status',['instock','outofstock']);
-            // $table->boolean('featured')->default(false);
-            // $table->unsignedInteger('quantity')->default(10);
             $table->String('image')->nullable;
             $table->text('images')->default('');
             $table->bigInteger('category_id')->unsigned()->nullable(); 

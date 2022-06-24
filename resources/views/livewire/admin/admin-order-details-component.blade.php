@@ -132,7 +132,7 @@
             <div class="col-md-12">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Shopping Details
+                        Shipping Details
                     </div>
                     <div class="panel-body">
                           <table class="table">

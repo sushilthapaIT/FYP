@@ -25,6 +25,7 @@ class ContactComponent extends Component
 
     public function sendMessage()
     {
+        // {{ dd('sads'); }}
         $this->validate([
             'name' => 'required', 
             'email' => 'required|email', 

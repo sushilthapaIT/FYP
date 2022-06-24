@@ -81,21 +81,7 @@
 								<div class="tab-content-item active" id="description">
 									{{ $product->description }}
 								</div>
-								{{-- <div class="tab-content-item " id="add_infomation">
-									<table class="shop_attributes">
-										<tbody>
-											<tr>
-												<th>Weight</th><td class="product_weight">1 kg</td>
-											</tr>
-											<tr>
-												<th>Dimensions</th><td class="product_dimensions">12 x 15 x 23 cm</td>
-											</tr>
-											<tr>
-												<th>Color</th><td><p>Black, Blue, Grey, Violet, Yellow</p></td>
-											</tr>
-										</tbody>
-									</table>
-								</div> --}}
+	
 								<div class="tab-content-item " id="review">
 									
 									<div class="wrap-review-form">
@@ -162,8 +148,8 @@
 										<i class="fa fa-heart" aria-hidden="true"></i>
 										<div class="right-content">
 											<b class="title">Free Shipping</b>
-											<span class="subtitle">On Oder Over $99</span>
-											<p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+											<span class="subtitle">On Order</span>
+											<p class="desc"></p>
 										</div>
 									</a>
 								</li>
@@ -174,7 +160,7 @@
 										<div class="right-content">
 											<b class="title">Fresh Bakery Items</b>
 											<span class="subtitle">Get a gift!</span>
-											<p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+											<p class="desc"></p>
 										</div>
 									</a>
 								</li>
@@ -183,9 +169,9 @@
 									<a class="link-to-service" href="#">
 										<i class="fa fa-reply" aria-hidden="true"></i>
 										<div class="right-content">
-											<b class="title">100% Natural Ingridents</b>
-											<span class="subtitle">Return within 7 days</span>
-											<p class="desc">Lorem Ipsum is simply dummy text of the printing...</p>
+											<b class="title">100% Natural Ingredients</b>
+											<span class="subtitle">Natural</span>
+											<p class="desc"></p>
 										</div>
 									</a>
 								</li>
